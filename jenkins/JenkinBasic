@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Initialize'){
+            steps{
+                echo "Initialation Done"
+                echo "Maven Also Done"
+            }
+        }
+        stage('Build') {
+            steps {
+                //dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
+                sh 'mvn -B -DskipTests clean package'
+                //}
+            }
+        }
+     }
+}
